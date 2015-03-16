@@ -1,0 +1,18 @@
+#!/usr/bin/env node
+'user strict';
+
+process.title = 'pixijs';
+
+var resolve = require('resolve');
+
+resolve('pixijs-cli',{
+	basedir: process.cwd()
+}, function (error, projectLocalCli){
+	var cli;
+	if (error){
+		cli = require('../lib/cli');
+	}else{
+		cli = require(projectLocalCli);
+	}
+	cli(process.argv.slice(2));
+});
