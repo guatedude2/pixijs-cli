@@ -8,7 +8,7 @@ A command line interface for pixi.js with ES6 support.
 ### pixijs create, c <name>
 Creates a new pixi.js CLI project
   - `--path <path>` the path to create the new project
-  - `--fore` overwrites exisiting files
+  - `--force` overwrites exisiting files
 
 **Example:**
 
