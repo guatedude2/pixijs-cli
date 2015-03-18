@@ -1,6 +1,8 @@
 # Pixi.js CLI - 1.0.0
 A command line interface for pixi.js with ES6 support. 
 
+Pixi.js - http://www.pixijs.com/
+
 **Usage:** 
 
 `pixijs <command (Default: help)>`
