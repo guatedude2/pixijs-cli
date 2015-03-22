@@ -8,14 +8,17 @@
   },
   "author": "Alejandro Gonzalez Sole",
   "license": "GPL",
-  "bin": { "pixijs": "./bin/pixijs" },
-  "repository":{
+  "bin": {
+    "pixijs": "./bin/pixijs"
+  },
+  "repository": {
     "type": "git",
     "url": "https://github.com/guatedude2/pixijs-cli.git"
   },
   "dependencies": {
     "broccoli-concat": "0.0.12",
     "broccoli-es6-concatenator": "^0.1.11",
+    "broccoli-inject-livereload": "^0.1.1",
     "broccoli-kitchen-sink-helpers": "^0.2.6",
     "broccoli-merge-trees": "^0.2.1",
     "broccoli-slow-trees": "^1.0.0",
