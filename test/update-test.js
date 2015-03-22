@@ -36,7 +36,7 @@ describe('#update command', function (){
 
   it("fails with no-internet", function (done){
     genTree(basePath, {
-      '.pixi': '{"name":"test-project","sourcePath":"src","corePath":"libs/core","vendorPath":"libs/vendor","publicPath":"public","outputPath":"dist"}',
+      '.pixi': '{"name":"test-project","sourcePath":"src","pluginsPath":"libs/core","vendorPath":"libs/vendor","publicPath":"public","outputPath":"dist"}',
       'public':{},
       'libs':{
         'vendor':{
@@ -57,7 +57,7 @@ describe('#update command', function (){
 
   it("updates an existing project", function (done){
     genTree(basePath, {
-      '.pixi': '{"name":"test-project","sourcePath":"src","corePath":"libs/core","vendorPath":"libs/vendor","publicPath":"public","outputPath":"dist"}',
+      '.pixi': '{"name":"test-project","sourcePath":"src","pluginsPath":"libs/core","vendorPath":"libs/vendor","publicPath":"public","outputPath":"dist"}',
       'public':{},
       'libs':{
         'vendor':{

@@ -41,7 +41,7 @@ describe('#create command', function (){
   it("fails with a non-empty project directory", function (done){
     genTree(basePath, {
       'test-project': {
-        '.pixi': '{"name":"test-project","sourcePath":"src","corePath":"libs/core","vendorPath":"libs/vendor","publicPath":"public","outputPath":"dist"}'
+        '.pixi': '{"name":"test-project","sourcePath":"src","pluginsPath":"libs/core","vendorPath":"libs/vendor","publicPath":"public","outputPath":"dist"}'
       }
     });
     create(basePath, stdout, ['create', 'test-project'])

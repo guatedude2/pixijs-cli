@@ -30,7 +30,7 @@ describe('#build command', function (){
 
   it("fails when target directory is not empty", function (done){
     genTree(basePath, {
-      '.pixi': '{"name":"test-project","sourcePath":"src","corePath":"libs/core","vendorPath":"libs/vendor","publicPath":"public","outputPath":"dist"}',
+      '.pixi': '{"name":"test-project","sourcePath":"src","pluginsPath":"libs/core","vendorPath":"libs/vendor","publicPath":"public","outputPath":"dist"}',
       'public':{},
       'libs':{
         'vendor':{}
@@ -52,7 +52,7 @@ describe('#build command', function (){
 
   it("fails when a file has an error", function (done){
     genTree(basePath, {
-      '.pixi': '{"name":"test-project","sourcePath":"src","corePath":"libs/core","vendorPath":"libs/vendor","publicPath":"public","outputPath":"dist"}',
+      '.pixi': '{"name":"test-project","sourcePath":"src","pluginsPath":"libs/core","vendorPath":"libs/vendor","publicPath":"public","outputPath":"dist"}',
       'public':{},
       'libs':{
         'vendor':{
@@ -79,7 +79,7 @@ describe('#build command', function (){
 
   it("builds a project", function (done){
     genTree(basePath, {
-      '.pixi': '{"name":"test-project","sourcePath":"src","corePath":"libs/core","vendorPath":"libs/vendor","publicPath":"public","outputPath":"dist"}',
+      '.pixi': '{"name":"test-project","sourcePath":"src","pluginsPath":"libs/core","vendorPath":"libs/vendor","publicPath":"public","outputPath":"dist"}',
       'public':{},
       'libs':{
         'vendor':{
@@ -104,7 +104,7 @@ describe('#build command', function (){
 
   it("builds a project to a target directory", function (done){
     genTree(basePath, {
-      '.pixi': '{"name":"test-project","sourcePath":"src","corePath":"libs/core","vendorPath":"libs/vendor","publicPath":"public","outputPath":"dist"}',
+      '.pixi': '{"name":"test-project","sourcePath":"src","pluginsPath":"libs/core","vendorPath":"libs/vendor","publicPath":"public","outputPath":"dist"}',
       'public':{},
       'libs':{
         'vendor':{
@@ -130,7 +130,7 @@ describe('#build command', function (){
 
   it("builds a project overwriting target directory", function (done){
     genTree(basePath, {
-      '.pixi': '{"name":"test-project","sourcePath":"src","corePath":"libs/core","vendorPath":"libs/vendor","publicPath":"public","outputPath":"dist"}',
+      '.pixi': '{"name":"test-project","sourcePath":"src","pluginsPath":"libs/core","vendorPath":"libs/vendor","publicPath":"public","outputPath":"dist"}',
       'public':{},
       'libs':{
         'vendor':{

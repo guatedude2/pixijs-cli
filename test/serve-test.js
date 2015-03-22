@@ -32,7 +32,7 @@ describe('#serve functions', function (){
 
   it("starts with the default host and port", function (done){
     genTree(basePath, {
-      '.pixi': '{"name":"test-project","sourcePath":"src","corePath":"libs/core","vendorPath":"libs/vendor","publicPath":"public","outputPath":"dist"}',
+      '.pixi': '{"name":"test-project","sourcePath":"src","pluginsPath":"libs/core","vendorPath":"libs/vendor","publicPath":"public","outputPath":"dist"}',
       'public':{
         'index.html': 'OK'
       },
@@ -67,7 +67,7 @@ describe('#serve functions', function (){
 
   it("fails with an invalid host", function (done){
     genTree(basePath, {
-      '.pixi': '{"name":"test-project","sourcePath":"src","corePath":"libs/core","vendorPath":"libs/vendor","publicPath":"public","outputPath":"dist"}',
+      '.pixi': '{"name":"test-project","sourcePath":"src","pluginsPath":"libs/core","vendorPath":"libs/vendor","publicPath":"public","outputPath":"dist"}',
       'public':{
         'index.html': 'OK'
       },
@@ -92,7 +92,7 @@ describe('#serve functions', function (){
 
   it("starts with a specific host", function (done){
     genTree(basePath, {
-      '.pixi': '{"name":"test-project","sourcePath":"src","corePath":"libs/core","vendorPath":"libs/vendor","publicPath":"public","outputPath":"dist"}',
+      '.pixi': '{"name":"test-project","sourcePath":"src","pluginsPath":"libs/core","vendorPath":"libs/vendor","publicPath":"public","outputPath":"dist"}',
       'public':{
         'index.html': 'OK'
       },
@@ -127,7 +127,7 @@ describe('#serve functions', function (){
 
   it("starts with a specifc port", function (done){
     genTree(basePath, {
-      '.pixi': '{"name":"test-project","sourcePath":"src","corePath":"libs/core","vendorPath":"libs/vendor","publicPath":"public","outputPath":"dist"}',
+      '.pixi': '{"name":"test-project","sourcePath":"src","pluginsPath":"libs/core","vendorPath":"libs/vendor","publicPath":"public","outputPath":"dist"}',
       'public':{
         'index.html': 'OK'
       },
@@ -162,7 +162,7 @@ describe('#serve functions', function (){
 
   it("starts with a specifc live reload port", function (done){
     genTree(basePath, {
-      '.pixi': '{"name":"test-project","sourcePath":"src","corePath":"libs/core","vendorPath":"libs/vendor","publicPath":"public","outputPath":"dist"}',
+      '.pixi': '{"name":"test-project","sourcePath":"src","pluginsPath":"libs/core","vendorPath":"libs/vendor","publicPath":"public","outputPath":"dist"}',
       'public':{
         'index.html': 'OK'
       },
