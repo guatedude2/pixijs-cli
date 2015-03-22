@@ -7,6 +7,12 @@ Read more: http://www.pixijs.com/
 
 Please note that this tool is still in beta stages.
 
+##Installation
+
+You need to have npm to run:
+`npm install pixijs-cli -g`
+
+
 **Usage:** 
 
 `pixijs <command (Default: help)>`
