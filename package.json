@@ -1,6 +1,6 @@
 {
   "name": "pixijs-cli",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "A command-line interface development tool for PIXI.JS",
   "main": "index.js",
   "scripts": {
@@ -8,6 +8,11 @@
   },
   "author": "Alejandro Gonzalez Sole",
   "license": "GPL",
+  "bin": "./bin/pixijs",
+  "repository":{
+    "type": "git",
+    "url": "https://github.com/guatedude2/pixijs-cli.git"
+  },
   "dependencies": {
     "broccoli-concat": "0.0.12",
     "broccoli-es6-concatenator": "^0.1.11",
