@@ -14,75 +14,66 @@ function loopRender(){
 
 export default {
   error: false,
+  isWebGL: false,
+  canvas: null,
   currentScene: null,
+  paused: false,
   init: function (options){
-    this.screenWidth = options.screenWidth || 800;
-    this.screenHeight = options.screenHeight || 800;
-    this.renderer = PIXI.autoDetectRenderer(this.screenWidth, this.screenHeight);
-    document.body.appendChild(this.renderer.view);
+    var self = this;
+    self.screenWidth = options.screenWidth || 800;
+    self.screenHeight = options.screenHeight || 800;
+    self.renderer = PIXI.autoDetectRenderer(self.screenWidth, self.screenHeight);
+    self.isWebGL = !!self.renderer.gl;
+    self.canvas = self.renderer.view;
+    document.body.appendChild(self.renderer.view);
+    self.canvas.style.margin = 'auto';
+    self.canvas.style.position = 'absolute';
+    self.canvas.style.top = 0;
+    self.canvas.style.left = 0;
+    self.canvas.style.bottom = 0;
+    self.canvas.style.right = 0;
     if (options.scale){
-      this.resize();
-      window.addEventListener('resize', this.resize);
+      self.resize();
+      window.addEventListener('resize', function (){ self.resize(); });
     }
-    this.mainLoop();
-    //loop
-    this.initialized = true;
+    self.mainLoop();
+    self.initialized = true;
 
   },
   resize: function (){
     var ratio = Math.min(window.innerWidth / this.screenWidth, window.innerHeight / this.screenHeight);
     this.width = this.screenWidth * ratio;
     this.height = this.screenHeight * ratio;
-    this.renderer.resize(this.width, this.height);
+    this.canvas.style.width = this.width + 'px';
+    this.canvas.style.height = this.height + 'px';
+    //this.renderer.resize(this.width, this.height);
   },
   mainLoop: function (){
     var self = this;
-    if (!this.error){
+    if (!self.error){
       requestAnimFrame(function (){ self.mainLoop(); });
     }
+    if (self.paused) return;
     try{
-      if (this.currentScene){
-        if (this.currentScene.render) this.currentScene.render.call(this.currentScene);
-        this.renderer.render(this.currentScene);
+      if (self.currentScene){
+        if (self.currentScene.render) self.currentScene.render.call(self.currentScene);
+        self.renderer.render(self.currentScene);
       }
     }catch(err){
-      if (!this.error){
-        this.error = true;
+      if (!self.error){
+        self.error = true;
         throw err;
       }
     }
 
   },
+  pause: function (){
+    this.paused = true;
+  },
+  resume: function (){
+    this.paused = false;
+  },
   setScene: function (scene){
     this.currentScene = scene;
   }
-  // constructor: function (options){
-  //   stageInstance = this;
-  //   options.screen = options.screen || {};
-  //   this._super(options.backgroundColor || 0x000000);
-  //   this.currentScene = null;
-  //   this.screenWidth = options.screen.width || 800;
-  //   this.screenHeight = options.screen.height || 600;
-  //   this.renderer = PIXI.autoDetectRenderer(this.screenWidth, this.screenHeight);
-  //   document.body.appendChild(this.renderer.view);
-  //   if (options.scale){
-  //     this.resize();
-  //     window.addEventListener('resize', stageInstance.resize);
-  //   }
-
-  //   loopRender();
-  // },
-  // resize: function (){
-  //   var ratio = Math.min(window.innerWidth / this.screenWidth, window.innerHeight / this.screenHeight);
-
-  //   this.width = this.screenWidth * ratio;
-  //   this.height = this.screenHeight * ratio;
-  //   console.log(this.width, this.height, ratio)
-  //   this.renderer.resize(this.width, this.height);
-  // },
-  // setScene: function (scene){
-  //   if (this.currentScene) this.removeChild(this.currentScene);
-  //   this.addChild(scene);
-  //   this.currentScene = scene;
-  // }
 };

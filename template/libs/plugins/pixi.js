@@ -1,4 +1,4 @@
-//wraps pixi in ES6 and removes global variable
+//wraps pixi in es6 module and removes global variable
 var PIXI;
 if (window.PIXI){
 	PIXI = window.PIXI;

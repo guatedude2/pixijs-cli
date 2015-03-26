@@ -9,20 +9,30 @@ var initializing = false,
 
 function Class(){};
 
-function extendClass(ctor, prop) {
+function inheritClass(superClass){
   var self = this;
-  if (typeof ctor === 'function'){
-    var parent = {};
-    for(var name in ctor.prototype){
-      parent[name] = ctor.prototype[name];
-    }
-    parent.init = ctor.prototype.constructor;
-    self = extendClass.call(self, parent);
-  }else{
-    prop = ctor;
-    ctor = null;
+  function Class(){
+    if (!initializing && typeof this._constructor === 'function')
+      this._constructor.apply(this, arguments);
   }
+
+  Class.prototype = superClass.prototype;
+  Class.prototype._constructor = superClass;
+  Class.prototype.constructor = Class;
+  Class.extend = extendClass;
+  //currenlty if you inhert multiple classes it breaks
+  Class.inherit = inheritClass;
+  return Class;
+};
+
+function extendClass(prop) {
+  var self = this;
   var _super = self.prototype;
+
+  function Class(){
+    if (!initializing && typeof this._constructor === 'function')
+      this._constructor.apply(this, arguments);
+  }
 
   initializing = true;
   var prototype = new self();
@@ -39,22 +49,18 @@ function extendClass(ctor, prop) {
           this._super = tmp;
           return ret;
         };
-      })(name, prop[name]) :
-      prop[name];
-  }
-
-  function Class() {
-    if ( !initializing && this.init )
-      this.init.apply(this, arguments);
+      })(name, prop[name]) : prop[name];
   }
 
   Class.prototype = prototype;
   Class.prototype.constructor = Class;
   Class.extend = extendClass;
+  Class.inherit = inheritClass;
 
   return Class;
 };
 
 Class.extend = extendClass;
+Class.inherit = inheritClass;
 
 export default Class;
