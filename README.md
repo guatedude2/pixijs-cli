@@ -11,7 +11,7 @@ Read more: http://www.pixijs.com/
 Plugin documentation coming soon at www.pixijs-cli.com
 
 
-##Installation
+##How do I install Pixi.js CLI?
 
 You need to have npm to run:
 
@@ -21,7 +21,7 @@ You need to have npm to run:
 
 
 
-##How to use Pixi.js CLI
+##How do I use Pixi.js CLI?
 
 `pixijs <command (Default: help)>`
 
