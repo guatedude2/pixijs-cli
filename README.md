@@ -1,12 +1,15 @@
 # Pixi.js CLI 
-A command line interface for pixi.js with ES6 support. 
+A command line interface for Pixi.js with ES6 support and Pixi.js plugins that facilitate game development. 
 
-Documentation coming soon at www.pixijs-cli.com
-
-##What is Pixi.js
+##What is Pixi.js?
 Pixi.js is a super fast HTML 5 2D rendering engine that uses webGL with canvas fallback. 
 
 Read more: http://www.pixijs.com/
+
+##What plugins are available?
+
+Plugin documentation coming soon at www.pixijs-cli.com
+
 
 ##Installation
 
@@ -17,7 +20,8 @@ You need to have npm to run:
 * Please note that this tool is still in beta stages.
 
 
-##Usage
+
+##How to use Pixi.js CLI
 
 `pixijs <command (Default: help)>`
 
