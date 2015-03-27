@@ -2,8 +2,7 @@ import PIXI from 'pixi';
 import Class from 'class';
 import keyboard from 'keyboard';
 
-export default Class.inherit(PIXI.Stage)
-.extend({
+export default Class.inherit(PIXI.Stage).extend({
   _constructor: function (bgColor){
     this._super(bgColor || this.backgroundColor);
     console.log(keyboard)

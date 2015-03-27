@@ -16,12 +16,14 @@
     "url": "https://github.com/guatedude2/pixijs-cli.git"
   },
   "dependencies": {
+    "broccoli-babel-transpiler": "^4.0.1",
     "broccoli-concat": "0.0.12",
     "broccoli-es6-concatenator": "^0.1.11",
     "broccoli-inject-livereload": "^0.1.1",
     "broccoli-kitchen-sink-helpers": "^0.2.6",
     "broccoli-merge-trees": "^0.2.1",
     "broccoli-slow-trees": "^1.0.0",
+    "broccoli-static-compiler": "^0.2.1",
     "broccoli-uglify-js": "^0.1.3",
     "colors": "^1.0.3",
     "connect": "^3.3.5",
