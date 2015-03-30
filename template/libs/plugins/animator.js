@@ -51,6 +51,7 @@ Animator.prototype.to = function (props, duration, easing, complete){
   });
   this._updateDuration();
   this.totalSteps = this._steps.length;
+  return this;
 }
 
 Animator.prototype.start = function(callback){
@@ -68,8 +69,8 @@ Animator.prototype.start = function(callback){
     }
   }
   this._updateDuration();
-  console.log(this.uid)
   Animator._animations.push(this);
+  return this;
 }
 
 Animator.prototype.stop = function(){
@@ -79,6 +80,7 @@ Animator.prototype.stop = function(){
       break;
     }
   }
+  return this;
 }
 
 Animator.prototype.update = function(){
@@ -140,14 +142,17 @@ Animator.prototype.update = function(){
 
 Animator.prototype.onComplete = function(callback){
   this.on('complete', callback.bind(this));
+  return this;
 }
 
 Animator.prototype.onStart = function(callback){
   this.on('start', callback.bind(this));
+  return this;
 }
 
 Animator.prototype.onStep = function(callback){
   this.on('step', callback.bind(this));
+  return this;
 }
 
 var baseEasings = {
