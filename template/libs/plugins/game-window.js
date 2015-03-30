@@ -1,28 +1,22 @@
 import PIXI from 'pixi';
 import Class from 'class';
 
-function loopRender(){
-  if (!fatalError) requestAnimFrame(loopRender);
-  try{
-    if (stageInstance.currentScene) stageInstance.currentScene.render.call(stageInstance.currentScene);
-  }catch(err){
-    fatalError = true;
-    throw err;
-  }
-  stageInstance.renderer.render(stageInstance);
-}
-
-export default {
+var GameWindow = {
+  screenHeight: 0,
+  screenWidth: 0,
   error: false,
   isWebGL: false,
   canvas: null,
   currentScene: null,
   paused: false,
+  time: 0,
+  deltaTime: 0,
+  _speed: 1,
   init: function (options){
     var self = this;
     self.screenWidth = options.screenWidth || 800;
     self.screenHeight = options.screenHeight || 800;
-    self.renderer = PIXI.autoDetectRenderer(self.screenWidth, self.screenHeight);
+    self.renderer = PIXI.autoDetectRenderer(self.screenWidth, self.screenHeight, options.rendererOptions || {});
     self.isWebGL = !!self.renderer.gl;
     self.canvas = self.renderer.view;
     document.body.appendChild(self.renderer.view);
@@ -32,7 +26,7 @@ export default {
     self.canvas.style.left = 0;
     self.canvas.style.bottom = 0;
     self.canvas.style.right = 0;
-    if (options.scale){
+    if (options.scale!==false){
       self.resize();
       window.addEventListener('resize', function (){ self.resize(); });
     }
@@ -47,16 +41,18 @@ export default {
     this.canvas.style.width = this.width + 'px';
     this.canvas.style.height = this.height + 'px';
     //this.renderer.resize(this.width, this.height);
+    this.emit('resize');
   },
   mainLoop: function (){
     var self = this;
+    var now = (new Date()).getTime();
     if (!self.error){
       requestAnimFrame(function (){ self.mainLoop(); });
     }
     if (self.paused) return;
     try{
       if (self.currentScene){
-        if (self.currentScene.render) self.currentScene.render.call(self.currentScene);
+        if (self.currentScene.update) self.currentScene.update.call(self.currentScene);
         self.renderer.render(self.currentScene);
       }
     }catch(err){
@@ -66,6 +62,10 @@ export default {
       }
     }
 
+    this.deltaTime = (now - this.time) * this._speed;
+    this.time = now;
+
+    this.emit('tick');
   },
   pause: function (){
     this.paused = true;
@@ -77,3 +77,20 @@ export default {
     this.currentScene = scene;
   }
 };
+
+Object.defineProperty(GameWindow, 'speed', {
+  get: function (){
+    var speed = this._speed;
+    return (speed===1 ? 'normal' : (speed===0.5 ? 'slow' : (speed===1.5 ? 'fast' : speed)));
+  },
+  set: function (value){
+    this._speed = (value==='normal' ? 1 : (value==='slow' ? 0.5 : (value==='fast' ? 1.5 : value)));
+  },
+  enumerable: true,
+  configurable: true
+});
+
+
+PIXI.EventTarget.call(GameWindow);
+
+export default GameWindow;
