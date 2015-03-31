@@ -1,6 +1,6 @@
 var assert = require('assert'),
   fse = require('fs-extra'),
-  genTree = require('./lib/gen-tree'),
+  genTree = require('./helpers/gen-tree'),
   nock = require('nock'),
   update = require('../lib/update');
 
