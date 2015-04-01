@@ -1,7 +1,7 @@
-# Pixi.js CLI 
-A command line interface for pixi.js with ES6 support. 
+# Pixi.js CLI
+A command line interface for pixi.js with ES6 support.
 
-Pixi.js is a super fast HTML 5 2D rendering engine that uses webGL with canvas fallback. 
+Pixi.js is a super fast HTML 5 2D rendering engine that uses webGL with canvas fallback.
 
 Read more: http://www.pixijs.com/
 
@@ -59,3 +59,10 @@ Outputs the usage instructions for all commands or the provided command
 **Example:**
 
 `pixijs help`
+
+### pixijs clean
+Cleans the project temporary build folders
+
+**Example:**
+
+`pixijs clean`
