@@ -1,5 +1,7 @@
 import PIXI from 'pixi';
 import Class from 'class';
+import cordova from 'org.apache.cordova';
+import audio from 'audio';
 
 var GameWindow = {
   screenHeight: 0,

@@ -1,8 +1,8 @@
-import cordova from 'cordova';
+import cordova from 'org.apache.cordova';
 
 cordova.onReady(function(){
   if (!navigator){
-    console.log("Cordova Error: org.apache.cordova.vibration is not available!");
+    console.log("Warning: Plugin org.apache.cordova.vibration is not available!");
   }
 });
 
