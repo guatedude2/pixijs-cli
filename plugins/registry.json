@@ -1,0 +1,14 @@
+{
+  "plugins":[
+    {
+      "name": "Object Pool plugin",
+      "plugin": "object-pool",
+      "version": "1.0.0",
+      "description": "A plugin for object creation and destruction reusability.",
+      "author": "Alejandro Gonzalez Sole",
+      "dependencies":[
+        "class"
+      ]
+    }
+  ]
+}
