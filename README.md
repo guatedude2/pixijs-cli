@@ -1,20 +1,27 @@
 # Pixi.js CLI
-A command line interface for pixi.js with ES6 support.
+A command line interface for Pixi.js with ES6 support and Pixi.js plugins that facilitate game development.
 
+##What is Pixi.js?
 Pixi.js is a super fast HTML 5 2D rendering engine that uses webGL with canvas fallback.
 
 Read more: http://www.pixijs.com/
 
-Please note that this tool is still in beta stages.
+##What plugins are available?
 
-##Installation
+Plugin documentation coming soon at www.pixijs-cli.com:3000/docs
+
+
+##How do I install Pixi.js CLI?
 
 You need to have npm to run:
 
 `npm install pixijs-cli -g`
 
+* Please note that this tool is still in beta stages.
 
-##Usage
+
+
+##How do I use Pixi.js CLI?
 
 `pixijs <command (Default: help)>`
 
@@ -37,12 +44,16 @@ Starts an http server with LiveReload
 
 `pixijs serve --port 9999`
 
-### pixijs update, u
-Updates the pixi.js library with the lastest master version on github
+### pixijs plugin, p (search|add|remove|publish) <plugin_name>
+Search, adds, removes or publishes a pixi.js plugin
+  - search <plugin_name> searches the registry for a plugin
+  - add <plugin_name> adds a plugin from the registry to the current project
+  - remove <plugin_name> removes an existing plugin from the current project
+  - publish <plugin_name> publishes an existing plugin in the project. See documentation on publishing for more details.
 
 **Example:**
 
-`pixijs update`
+`pixijs plugin add object-pool`
 
 ### pixijs build, b <options>
 Builds the project to the build directory
