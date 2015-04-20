@@ -4,8 +4,8 @@ import Assets from './assets';
 import MainScene from './scenes/main';
 //Create a new game window
 GameWindow.init({
-  screenWidth: 1334,
-  screenHeight: 750,
+  stageWidth: 1334,
+  stageHeight: 750,
   scale: true
 });
 
