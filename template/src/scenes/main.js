@@ -3,6 +3,7 @@ import Class from 'class';
 import GameScene from 'game-scene';
 import GameWindow from 'game-window';
 import R from 'pixi-resource';
+import keyboard from 'keyboard';
 
 export default GameScene.extend({
   backgroundColor: 0x66FF99,
@@ -27,7 +28,12 @@ export default GameScene.extend({
   update: function () {
     // rotates the sprite every frame by 0.1
     this.bunny.rotation += 0.1;
-    if (keyboard.down('UP')) console.log("UP");
+
+    // move bunny sprite depending on keyboard arrow direction
+    if (keyboard.down('UP')) this.bunny.position.y--;
+    if (keyboard.down('DOWN')) this.bunny.position.y++;
+    if (keyboard.down('LEFT')) this.bunny.position.x--;
+    if (keyboard.down('RIGHT')) this.bunny.position.x++;
   },
 
   mousedown: function () {
