@@ -1,6 +1,6 @@
 var assert = require('assert'),
   fse = require('fs-extra'),
-  genTree = require('./lib/gen-tree'),
+  genTree = require('./helpers/gen-tree'),
   build = require('../lib/build');
 
 var basePath, stdout;
@@ -30,7 +30,7 @@ describe('#build command', function (){
 
   it("fails when target directory is not empty", function (done){
     genTree(basePath, {
-      '.pixi': '{"name":"test-project","sourcePath":"src","pluginsPath":"libs/core","vendorPath":"libs/vendor","publicPath":"public","outputPath":"dist"}',
+      '.pixi': '{"name":"test-project","sourcePath":"src","pluginsPath":"libs/plugins","vendorPath":"libs/vendor","publicPath":"public","outputPath":"dist"}',
       'public':{},
       'libs':{
         'vendor':{}
@@ -52,15 +52,13 @@ describe('#build command', function (){
 
   it("fails when a file has an error", function (done){
     genTree(basePath, {
-      '.pixi': '{"name":"test-project","sourcePath":"src","pluginsPath":"libs/core","vendorPath":"libs/vendor","publicPath":"public","outputPath":"dist"}',
+      '.pixi': '{"name":"test-project","sourcePath":"src","pluginsPath":"libs/plugins","vendorPath":"libs/vendor","publicPath":"public","outputPath":"dist"}',
       'public':{},
       'libs':{
         'vendor':{
           'pixi-dev.js': '/* DUMMY DATA */'
         },
-        'core':{
-          'loader.js': '/* DUMMY DATA */'
-        }
+        'plugins':{}
       },
       'src':{
         'index.js': 'non valid javascript'
@@ -79,15 +77,13 @@ describe('#build command', function (){
 
   it("builds a project", function (done){
     genTree(basePath, {
-      '.pixi': '{"name":"test-project","sourcePath":"src","pluginsPath":"libs/core","vendorPath":"libs/vendor","publicPath":"public","outputPath":"dist"}',
+      '.pixi': '{"name":"test-project","sourcePath":"src","pluginsPath":"libs/plugins","vendorPath":"libs/vendor","publicPath":"public","outputPath":"dist"}',
       'public':{},
       'libs':{
         'vendor':{
           'pixi-dev.js': '/* DUMMY DATA */'
         },
-        'core':{
-          'loader.js': '/* DUMMY DATA */'
-        }
+        'plugins':{}
       },
       'src':{
         'index.js': '/* DUMMY DATA */'
@@ -104,15 +100,13 @@ describe('#build command', function (){
 
   it("builds a project to a target directory", function (done){
     genTree(basePath, {
-      '.pixi': '{"name":"test-project","sourcePath":"src","pluginsPath":"libs/core","vendorPath":"libs/vendor","publicPath":"public","outputPath":"dist"}',
+      '.pixi': '{"name":"test-project","sourcePath":"src","pluginsPath":"libs/plugins","vendorPath":"libs/vendor","publicPath":"public","outputPath":"dist"}',
       'public':{},
       'libs':{
         'vendor':{
           'pixi-dev.js': '/* DUMMY DATA */'
         },
-        'core':{
-          'loader.js': '/* DUMMY DATA */'
-        }
+        'plugins':{}
       },
       'src':{
         'index.js': '/* DUMMY DATA */'
@@ -130,15 +124,13 @@ describe('#build command', function (){
 
   it("builds a project overwriting target directory", function (done){
     genTree(basePath, {
-      '.pixi': '{"name":"test-project","sourcePath":"src","pluginsPath":"libs/core","vendorPath":"libs/vendor","publicPath":"public","outputPath":"dist"}',
+      '.pixi': '{"name":"test-project","sourcePath":"src","pluginsPath":"libs/plugins","vendorPath":"libs/vendor","publicPath":"public","outputPath":"dist"}',
       'public':{},
       'libs':{
         'vendor':{
           'pixi-dev.js': '/* DUMMY DATA */'
         },
-        'core':{
-          'loader.js': '/* DUMMY DATA */'
-        }
+        'plugins':{}
       },
       'src':{
         'index.js': '/* DUMMY DATA */'
