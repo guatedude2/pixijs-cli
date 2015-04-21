@@ -5,9 +5,9 @@ import R from 'pixi-resource';
 import keyboard from 'keyboard';
 
 class MainScene extends GameScene {
-  backgroundColor: 0x66FF99,
 
   init() {
+    this.backgroundColor = 0x66FF99;
 
     this.bunny = new PIXI.Sprite(R.assets.bunny);
 
@@ -37,7 +37,7 @@ class MainScene extends GameScene {
 
   mousedown() {
     GameWindow.paused = !GameWindow.paused;
-  },
+  }
 }
 
 export default MainScene;
