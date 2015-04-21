@@ -1,14 +1,13 @@
 import PIXI from 'pixi';
-import Class from 'class';
 import GameScene from 'game-scene';
 import GameWindow from 'game-window';
 import R from 'pixi-resource';
 import keyboard from 'keyboard';
 
-export default GameScene.extend({
+class MainScene extends GameScene {
   backgroundColor: 0x66FF99,
 
-  init: function () {
+  init() {
 
     this.bunny = new PIXI.Sprite(R.assets.bunny);
 
@@ -23,9 +22,9 @@ export default GameScene.extend({
     // adds the bunny sprite to the scene
     this.addChild(this.bunny);
 
-  },
+  }
 
-  update: function () {
+  update() {
     // rotates the sprite every frame by 0.1
     this.bunny.rotation += 0.1;
 
@@ -34,9 +33,11 @@ export default GameScene.extend({
     if (keyboard.down('DOWN')) this.bunny.position.y++;
     if (keyboard.down('LEFT')) this.bunny.position.x--;
     if (keyboard.down('RIGHT')) this.bunny.position.x++;
-  },
+  }
 
-  mousedown: function () {
+  mousedown() {
     GameWindow.paused = !GameWindow.paused;
   },
-});
+}
+
+export default MainScene;
