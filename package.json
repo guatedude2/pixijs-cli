@@ -1,6 +1,6 @@
 {
   "name": "pixijs-cli",
-  "version": "0.1.8",
+  "version": "0.2.0",
   "description": "A command-line interface development tool for PIXI.JS",
   "main": "index.js",
   "scripts": {
