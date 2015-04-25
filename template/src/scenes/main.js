@@ -24,7 +24,7 @@ class MainScene extends GameScene {
 
   }
 
-  update() {
+  updateTransform() {
     // rotates the sprite every frame by 0.1
     this.bunny.rotation += 0.1;
 
@@ -33,6 +33,8 @@ class MainScene extends GameScene {
     if (keyboard.down('DOWN')) this.bunny.position.y++;
     if (keyboard.down('LEFT')) this.bunny.position.x--;
     if (keyboard.down('RIGHT')) this.bunny.position.x++;
+
+    super.updateTransform();
   }
 
   mousedown() {

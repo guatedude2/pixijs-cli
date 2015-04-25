@@ -2,11 +2,12 @@ import PIXI from 'pixi';
 import GameWindow from 'game-window';
 import Assets from './assets';
 import MainScene from './scenes/main';
+
 //Create a new game window
 GameWindow.init({
   stageWidth: 1334,
   stageHeight: 750,
-  scale: true
+  scale: 'ScaleFit'
 });
 
 //Wait for assets to be loaded
