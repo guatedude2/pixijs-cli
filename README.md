@@ -76,7 +76,7 @@ Adds, remove or list cordova platforms
 
 
 
-### pixijs run [<platforms>] <options>
+### pixijs run [\<platforms\>] <options>
 Launches the project on the provided platforms (Note: Will launch on all projects if not platform is provided)
   - `--debug` enables debug mode when running
   - `--release` creates a release of the project before running it
@@ -91,7 +91,7 @@ Launches the project on the provided platforms (Note: Will launch on all project
 
 
 
-### pixijs compile [<platforms>] <options>
+### pixijs compile [\<platforms\>] <options>
 Comile the project on the provided platforms (Note: Will compile on all projects if not platform is provided)
   - `--debug` enables debug mode when running
   - `--release` creates a release of the project before running it
