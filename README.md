@@ -136,7 +136,7 @@ Cleans the project temporary build folders
 
 ## What add-ons are available?
 
-All avaialable add-ons are available [www.pixijs-cli.com:3000/docs](here) along with their documentation.
+All avaialable add-ons are available [here](http://www.pixijs-cli.com:3000/docs) along with their documentation.
 
 
 ## How do I create my own add-ons?
