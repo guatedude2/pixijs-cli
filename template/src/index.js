@@ -7,7 +7,7 @@ import MainScene from './scenes/main';
 GameWindow.init({
   stageWidth: 1334,
   stageHeight: 750,
-  scale: 'ScaleFit'
+  scaleMode: 'ScaleFit'
 });
 
 //Wait for assets to be loaded
